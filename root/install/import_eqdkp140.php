@@ -34,15 +34,15 @@ if (!file_exists($phpbb_root_path . 'umil/umil_auto.' . $phpEx))
     from: <a href="http://www.phpbb.com/mods/umil/">phpBB.com/mods/umil</a>', E_USER_ERROR);
 }
 
-if (!file_exists($phpbb_root_path . 'install/import_eqdkpplus.' . $phpEx))
+if (!file_exists($phpbb_root_path . 'install/import_eqdkp140.' . $phpEx))
 {
     trigger_error('Warning! Install directory has wrong name. 
     it must be \'install\'. Please rename it and launch again.', E_USER_WARNING);
 }
 
-$mod_name = 'EQDKPplus 0.6.3.5 Importer to bbDKP 1.2.3';
+$mod_name = 'EQDKP 1.4.0 Importer to bbDKP 1.2.3 ';
 
-$version_config_name = 'eqdkpplusimporter_version';
+$version_config_name = 'eqdkp140mporter';
 
 $language_file = 'mods/dkp_import';
 
@@ -80,21 +80,20 @@ $game_id = request_var('gameoptions', '');
    
 switch ($game_id)
 {
-	case 'wow':
-		// array for converting eqdkp plus classid to bbdkp classid (=blizz)
+case 'wow':
+		// array for converting eqdkp140 classid to bbdkp123 classid (=blizz)
 	    $bbdkpclass = array( 
-	        0 => 0, //unknown 
-	    	1 => 1, //warrior 
-	        2 => 4, //"Rogue
-	        4 => 3, //"Hunter
-	        6 => 5, //"Priest
-	        7 => 11, //Druid
-	        9 => 7, //Shaman
-	        10 => 9, //Warlock
-	        11 => 8, //Mage
-	        12 => 1, //Warrior
-	        13 => 2, //Paladin
-	        20 => 6, //Death Knight
+	    	0 => 0, //unknown
+	        1 => 11, //Druid 
+	        2 => 3, //hunter
+	        3 => 8, //Mage,
+	        4 => 2, //Paladin
+	        5 => 5, //Priest
+	        6 => 4, //Rogue
+	        7 => 7, //Shaman
+	        8 => 9, //Warlock
+	        9 => 1, //Warrior
+	        10 => 6, //Deathknight
 	      ); 
 	      
 	     // array for converting eqdkp raceid to bbdkp raceid (=blizz)
@@ -113,64 +112,9 @@ switch ($game_id)
 	      ); 
 		break;
 	
-	case 'vanguard':
-		
-		// array for converting eqdkp classid to bbdkp classid
-	    $bbdkpclass = array( 
-	    	0 => 0, // unknown
-	        1 => 1, //Bard 
-	        2 => 2, //"Berserker
-	        3 => 3, //"Blood Mage,
-	        4 => 4, //"Cleric
-	        5 => 5, //"Disciple
-	        6 => 6, // "Dread Knight
-	        7 => 7, //"Druid
-	        8 => 0, //Inquisitor scrapped
-	        9 => 8, //Monk
-	        10 => 9, //Necromancer
-	        11 => 10, //Paladin
-	        12 => 11, //Psionicist
-	        13 => 12, //Ranger 
-	        14 => 13, //Rogue
-	        15 => 0, //Shaman class scrapped
-	        16 => 14, //Sorcerer
-	        17 => 15, //Warrior
-	      ); 
-	      
-	     // array for converting eqdkp raceid to bbdkp raceid
-	    $bbdkprace = array( 
-	    	 0 => 0, // unknown
-	         1 => 0, //Barbarian - scrapped
-	         2 => 16, //Dark Elf
-	         3 => 2, //Dwarf
-	         4 => 4, //Elf -> High Elf
-	         5 => 7, //Giant -> lesser Giant
-	         6 => 15, //Gnome
-	         7 => 12, //Goblin
-	         8 => 10, //Half-Elf
-	         9 => 3, //Halfling
-	        10 => 4, //High Elf
-	        11 => 1, //Human
-	        12 => 8, //Kojani
-	        13 => 17, //Kurashasa
-	        14 => 7, //Lesser Giant
-	        15 => 18, //Mordebi
-	        16 => 11, //Orc
-	        17 => 14, //Qaliathari
-	        18 => 13, //Raki
-	        19 => 1, //Thestran
-	        20 => 6, //Varanjar
-	        21 => 19, //Varathari
-	        22 => 5, //Vulmane
-	        23 => 9, //Wood Elf
-	      ); 
-	      
-
-		break; 
-
 	case 'eq':
 			
-			// array for converting eqdkp classid to bbdkp classid
+			// array for converting eqdkp140 classid to bbdkp classid
 	    $bbdkpclass = array( 
 	    	0 => 0, //Unknown
 	        1 => 1, //Warrior
@@ -191,7 +135,7 @@ switch ($game_id)
 	        16 => 16, //Berserker  
 	      ); 
 	      
-	     // array for converting eqdkp raceid to bbdkp raceid
+	     // array for converting eqdkp140 raceid to bbdkp raceid
 	    $bbdkprace = array( 
 	    	 0 => 0, //unknown
 	         1 => 1, //Gnome
@@ -214,61 +158,6 @@ switch ($game_id)
 	      ); 
 
 		break; 
-		
-	case 'eq2':
-		
-		// array for converting eqdkp+ classid (key) to bbdkp classid (value)
-	    $bbdkpclass = array( 
-	        0 => 0, //unknown
-	        1 => 1, //Assassin
-	        2 => 2, //Berserker
-	        3 => 4, //Brigand
-	        4 => 3, //Bruiser
-	        5 => 5, // Coercer
-	        6 => 6, //Conjuror
-	        7 => 7, //Defiler
-	        8 => 8, //Dirge
-	        9 => 9, //Fury
-	        10 => 10, //Guardian
-	        11 => 11, //Illusionist
-	        12 => 12, //Inquisitor
-	        13 => 13, //Monk
-	        14 => 14, //Mystic
-	        15 => 15, //Necromancer
-	        16 => 16, //Paladin
-	        17 => 17, //Ranger
-	        18 => 18, //Shadowknight
-	        19 => 19, //Swashbuckler			        				        				        				        				        				        				        				        				        				        				        				        				        				        				        				        				        				        				        				        
-	        20 => 20, //Templar
-	        21 => 21, //Troubador
-	        22 => 23, //Warden
-	        23 => 22, //Warlock
-	        24 => 24 //Wizard
-	      ); 
-	      
-	     // array for converting eqdkp+ raceid to bbdkp raceid
-	    $bbdkprace = array( 
-	    	 0 => 0, //unknown
-	         1 => 20, //Sarnak
-	         2 => 1, //Gnome
-	         3 => 2, //human
-	         4 => 3, //Barbarian
-	         5 => 4, //Dwarf
-	         6 => 5, //High Elf
-	         7 => 6, //Dark Elf
-	         8 => 7, //Wood Elf
-	         9 => 8, //Half Elf
-	        10 => 9, //Kerra
-	        11 => 10, //Troll
-	        12 => 11, //Ogre
-	        13 => 18, //Froglok
-	        14 => 14, //Erudite
-	        15 => 13, //Iksar
-	        16 => 16, //Ratonga
-	        17 => 15, //Halfling
-	        18 => 19, //Arasai
-	        19 => 17, //Fae
-	      ); 
 }
 	
 	
@@ -906,8 +795,6 @@ function gameoptions($selected_value, $key)
     /* game importer pulldown menu rendering */
     $gametypes = array(
     	'eq'     		=> "EverQuest",
-    	'eq2'     		=> "EverQuest II",
-    	'vanguard'		=> "Vanguard - Saga of Heroes",
     	'wow'     		=> "World of Warcraft", 
     );
     $default = 'wow'; 

@@ -10,13 +10,13 @@ within the MOD. No support will be given for MODs not found within the MODs Data
     <license>http://opensource.org/licenses/gpl-license.php GNU General Public License v2</license>
     <title lang="en">EQDKP Importer to bbDKP 1.2.3</title>
     <description lang="en">
-   This mod will copy the data from EQDKP Plus (tested on 0.6.3.5) or EQDKP 1.3.2f to bbDKP 1.2.3 
+   This mod will copy the data from EQDKP Plus (tested on 0.6.3.5) or EQDKP 1.4.0 to bbDKP 1.2.3 
    Dependency : bbDKP must be installed before. 
 </description>
 <author-notes lang="en">Make sure your EQDKP database is on the same server as your phpBB/bbDKP installation. <br />
     After you placed the files, launch the import tool : <br />
-    for EQDKP 1.3.2f : surf to   /install/import_eqdkp132.php  <br />
-    for EQDKP PLUS : surf to     /install/import_eqdkpplus.php  <br />
+    for EQDKP 1.4.0 : surf to /install/import_eqdkp140.php  <br />
+    for EQDKP PLUS 0.6.3.5 : surf to /install/import_eqdkpplus.php  <br />
     </author-notes>
     <author-group>
  	<author>
@@ -69,7 +69,7 @@ within the MOD. No support will be given for MODs not found within the MODs Data
     <diy-instructions lang="en">
   Make sure your EQDKP database is on the same server as your PHPBB installation. <br />
     After you placed the files, launch the import tool : <br />
-    for EQDKP 1.3.2f : surf to   /install/import_eqdkp132.php  <br />
+    for EQDKP 1.4.0 : surf to   /install/import_eqdkp140.php  <br />
     for EQDKP PLUS : surf to     /install/import_eqdkpplus.php  <br />
      </diy-instructions>
   </action-group>

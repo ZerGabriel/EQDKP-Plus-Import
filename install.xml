@@ -8,12 +8,12 @@ within the MOD. No support will be given for MODs not found within the MODs Data
 <mod xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.phpbb.com/mods/xml/modx-1.2.5.xsd">
   <header>
     <license>http://opensource.org/licenses/gpl-license.php GNU General Public License v2</license>
-    <title lang="en">EQDKP Importer to bbDKP 1.1</title>
+    <title lang="en">EQDKP Importer to bbDKP 1.2.3</title>
     <description lang="en">
-   This mod will copy the data from EQDKP to bbDKP 1.1. 
+   This mod will copy the data from EQDKP Plus (tested on 0.6.3.5) or EQDKP 1.3.2f to bbDKP 1.2.3 
    Dependency : bbDKP must be installed before. 
 </description>
-<author-notes lang="en">Make sure your EQDKP database is on the same server as your PHPBB installation. <br />
+<author-notes lang="en">Make sure your EQDKP database is on the same server as your phpBB/bbDKP installation. <br />
     After you placed the files, launch the import tool : <br />
     for EQDKP 1.3.2f : surf to   /install/import_eqdkp132.php  <br />
     for EQDKP PLUS : surf to     /install/import_eqdkpplus.php  <br />
@@ -29,13 +29,20 @@ within the MOD. No support will be given for MODs not found within the MODs Data
       	</contributions-group>	
     </author>
     </author-group>
-	<mod-version>1.0.1</mod-version>
+	<mod-version>1.0.2</mod-version>
     <installation>
       <level>easy</level>
       <time>600</time>
-	<target-version>3.0.7-PL1</target-version>
+	<target-version>3.0.8</target-version>
     </installation>
     <history>
+		<entry>
+		<date>2011-06-26</date>
+		<rev-version>1.0.2</rev-version>
+        <changelog lang="en">
+          <change>third version. now imports into bbDKP 1.2.3</change>
+        </changelog>
+      </entry>
 		<entry>
 		<date>2010-03-21</date>
 		<rev-version>1.0.1</rev-version>

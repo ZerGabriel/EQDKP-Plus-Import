@@ -109,6 +109,8 @@ case 'wow':
 	        8 => 6, //Tauren 
 	        9 => 11, //Draenei
 	        10 => 10, //Blood Elf
+	        11 => 22,  // worgen
+	        12 => 9 // goblin	        
 	      ); 
 		break;
 	
@@ -358,6 +360,7 @@ function importfase2($action, $version )
 					0, 
 					0, 
 					' ',
+					' ',					
 					$game_id,
 					0
 					);
@@ -865,7 +868,15 @@ function get_member_id($member_name)
     $result = $db->sql_query($sql);
     $member_id = (int) $db->sql_fetchfield('member_id', false, $result);
     $db->sql_freeresult($result);
-    return $member_id; 
+	if ($member_id == 0)
+    {
+    	// assign to guild bank
+    	 return 1; 
+    }
+    else 
+    {
+	    return $member_id; 
+	}
 }
 
 

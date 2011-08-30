@@ -29,7 +29,7 @@ within the MOD. No support will be given for MODs not found within the MODs Data
       	</contributions-group>	
     </author>
     </author-group>
-	<mod-version>1.0.2</mod-version>
+	<mod-version>1.0.3</mod-version>
     <installation>
       <level>easy</level>
       <time>600</time>
@@ -37,6 +37,13 @@ within the MOD. No support will be given for MODs not found within the MODs Data
     </installation>
     <history>
 		<entry>
+		<date>2011-08-30</date>
+		<rev-version>1.0.3</rev-version>
+        <changelog lang="en">
+          <change>4th version. bugfix (added goblin and worgen support, corrected addmember function, getmemberid will now return 1 (guildbank) if member not found. </change>
+        </changelog>
+      </entry>
+      <entry>
 		<date>2011-06-26</date>
 		<rev-version>1.0.2</rev-version>
         <changelog lang="en">

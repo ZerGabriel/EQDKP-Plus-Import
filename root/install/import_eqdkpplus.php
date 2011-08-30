@@ -77,7 +77,7 @@ $acp_dkp_mm1 = new acp_dkp_mm;
 $memberiddata = array(); 
    
 $game_id = request_var('gameoptions', '');
-   
+
 switch ($game_id)
 {
 	case 'wow':
@@ -110,6 +110,8 @@ switch ($game_id)
 	        8 => 6, //Tauren 
 	        9 => 11, //Draenei
 	        10 => 10, //Blood Elf
+	        11 => 22,  // worgen
+	        12 => 9 // goblin
 	      ); 
 		break;
 	
@@ -421,8 +423,8 @@ function importfase1($action, $version)
 // eqdkp_members -> phpbb_bbdkp_memberlist
 function importfase2($action, $version )
 {
-    global $db, $table_prefix, $umil, $phpbb_root_path, $phpEx, $user; 
-    global $eqdkp_table_prefix, $guild_id, $dkpid, $acp_dkp_mm1, $bbdkprace, $bbdkpclass, $memberiddata, $game_id;
+    global $db, $umil, $user; 
+    global $eqdkp_table_prefix, $guild_id, $acp_dkp_mm1, $bbdkprace, $bbdkpclass, $memberiddata, $game_id;
     
      $text = ''; 
      
@@ -468,6 +470,7 @@ function importfase2($action, $version )
 					$guild_id, 
 					0, 
 					0, 
+					' ',
 					' ',
 					$game_id,
 					0
@@ -749,7 +752,7 @@ function importfase6($action, $version )
 			   // Raid detail
 			   if($umil->table_exists($eqdkp_table_prefix . 'raid_attendees'))
 			   {
-				    $number_raidattendees = 0;    
+				    $number_raidattendees = 0;
 					$sql = 'select a.raid_id, a.member_name from ' . $eqdkp_table_prefix . 'raid_attendees a, eqdkp_raids b 
 						where a.raid_id = b.raid_id group by a.raid_id, a.member_name having count(*) = 1 ';
 					$result = $db->sql_query($sql);
@@ -977,9 +980,18 @@ function get_member_id($member_name)
     $sql = 'SELECT member_id FROM ' . $table_prefix . "bbdkp_memberlist where member_name = '"  . $db->sql_escape($member_name) . "'" ;
     $result = $db->sql_query($sql);
     $member_id = (int) $db->sql_fetchfield('member_id', false, $result);
+    
     $db->sql_freeresult($result);
-    return $member_id; 
+    
+    if ($member_id == 0)
+    {
+    	// assign to guild bank
+    	 return 1; 
+    }
+    else 
+    {
+	    return $member_id; 
+	}
 }
-
 
 ?>
